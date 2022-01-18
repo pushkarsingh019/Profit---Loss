@@ -7,7 +7,23 @@ var output = document.querySelector("#output");
 // Functions
 
 function validate(){
-    // to validate that all data is filled in
+    if (initalPrice.value == ""){
+        alert("Please Enter the Initial Value of the Stock")
+        return 0;
+    }
+    else if(stocksNumber.value == ""){
+        alert("Enter the Number of stocks you bought");
+        return 0;
+
+    }
+    else if(currentPrice.value == ""){
+        alert("Enter the current price of the stock");
+        return 0
+    }
+    else {
+        console.log("All data feild entered")
+        return 1
+    }
 }
 
 function check(profit, percentage){
@@ -51,8 +67,11 @@ function calculateProfit(){
 
 
 function eventHandler(){
-    var final_output = calculateProfit();
-    output.innerHTML = final_output;
+    var flag = validate();
+    if (flag == 1){
+        var final_output = calculateProfit();
+        output.innerHTML = final_output;
+    }
 }
 
 
